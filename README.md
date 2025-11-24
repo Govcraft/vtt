@@ -183,3 +183,8 @@ This project is licensed under the MIT or Apache-2.0 license.
 
 For questions or support, visit the
 [repository](https://github.com/Govcraft/vtt).
+## Sponsor
+
+Govcraft is a one-person shop—no corporate backing, no investors, just me building useful tools. If this project helps you, [sponsoring](https://github.com/sponsors/Govcraft) keeps the work going.
+
+[![Sponsor on GitHub](https://img.shields.io/badge/Sponsor-%E2%9D%A4-%23db61a2?logo=GitHub)](https://github.com/sponsors/Govcraft)
