@@ -705,7 +705,9 @@ impl fmt::Display for WebVtt {
         // Write cues
         for (i, cue) in self.cues.iter().enumerate() {
             if i > 0 {
-                writeln!(f)?; // Empty line between cues
+                // Empty line between cues
+                writeln!(f)?;
+                writeln!(f)?;
             }
             write!(f, "{}", cue)?;
         }
@@ -886,19 +888,31 @@ First subtitle"#;
         vtt.header.description = Some("Test".to_string());
         vtt.add_metadata("Language", "en");
 
-        let cue = VttCue {
+        let cue1 = VttCue {
             identifier: None,
             start: VttTimestamp::new(Duration::from_secs(1)),
             end: VttTimestamp::new(Duration::from_secs(5)),
             settings: None,
             payload: "Test".to_string(),
         };
-        vtt.add_cue(cue);
+        vtt.add_cue(cue1);
+
+        let cue2 = VttCue {
+            identifier: None,
+            start: VttTimestamp::new(Duration::from_secs(5)),
+            end: VttTimestamp::new(Duration::from_secs(9)),
+            settings: None,
+            payload: "Test".to_string(),
+        };
+        vtt.add_cue(cue2);
 
         let expected = r#"WEBVTT Test
 Language: en
 
 00:00:01.000 --> 00:00:05.000
+Test
+
+00:00:05.000 --> 00:00:09.000
 Test"#;
 
         assert_eq!(vtt.to_string(), expected);
